@@ -82,6 +82,19 @@ export const constantRoutes = [
         meta: { title: '仪表板', icon: 'dashboard', affix: true }
       }
     ]
+  },
+  {
+    path: 'log',
+    component: Layout,
+    children: [
+      {
+        path: '/:wsUrl',
+        component: () => import('@/pages/log/index'),
+        name: 'Log',
+        meta: { title: '日志', noCache: false },
+        hidden: true
+      }
+    ]
   }
   // {
   //   path: '/documentation',
@@ -429,6 +442,12 @@ export const asyncRoutes = [
         component: () => import('@/pages/agent/list'),
         name: 'AgentList',
         meta: { title: 'Agent', icon: 'node', noCache: true }
+      },
+      {
+        path: 'agent/extJar/list',
+        component: () => import('@/pages/agent/extjar/list'),
+        name: 'AgentExtJarList',
+        meta: { title: 'AgentJar', icon: 'jar', noCache: false }
       },
       {
         path: 'user/add',
